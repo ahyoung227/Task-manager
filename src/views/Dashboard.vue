@@ -27,7 +27,7 @@
 
 <script>
 import format from "date-fns/format";
-import cards from "@/components/DahsboardCards";
+import cards from "@/components/dashboardCards";
 
 export default {
   components: {
