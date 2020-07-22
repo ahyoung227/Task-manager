@@ -1,5 +1,5 @@
 <template>
-  <v-card :loading="loading" max-width="350" :to="{ name: 'Taskset' }">
+  <v-card max-width="300" class="cards ma-5">
     <!-- Card header -->
     <v-card-actions>
       <v-list-item-avatar>
@@ -67,7 +67,23 @@
       <v-card-text>
         <v-chip> <v-icon class="mr-2">people</v-icon>24 </v-chip>
       </v-card-text>
-      <v-btn color="deep-purple lighten-2" text outlined>Update</v-btn>
+      <v-btn
+        color="deep-purple lighten-2"
+        text
+        outlined
+        :to="{ name: 'Taskset' }"
+        >View</v-btn
+      >
     </v-card-actions>
   </v-card>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      items: [{ title: "Clone/Copy" }, { title: "Unsubscribe" }]
+    };
+  }
+};
+</script>

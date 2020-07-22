@@ -1,14 +1,15 @@
 <template>
-  <div class="Taskset mx-15">
-    <h1 class="text-center mb-10">Integrative Project</h1>
+  <div class="Taskset mx-16 pa-5">
+    <h1 class="text-center">Integrative Project</h1>
+    <h5 class="text-center">By Jin Kuwata</h5>
     <v-divider class="ma-10"></v-divider>
-    <p>
+    <p class="px-9 ma-0">
       The following is the task-set description for the IP project. You will
       need to complete the following subtasks in order to ensure timely
       graduation.
     </p>
 
-    <p>
+    <p class="px-9 ma-0">
       If you haven’t done any of the tasks below, please take a look at the
       timeline to check how far behind you may be.
     </p>
@@ -34,22 +35,21 @@
       </v-stepper-header>
     </v-stepper>
 
-    <div class="mx-5 task" v-for="task in tasks" :key="task.title">
-      <v-row>
-        <v-col>
-          <v-card class="pa-6 grey--text" height="70px"
-            ><span class="blue darken-2 text-center white--text">{{
-              task.date
-            }}</span>
-            {{ task.title }}</v-card
-          >
-        </v-col>
-      </v-row>
-    </div>
+    <v-card class="ma-5 d-flex" v-for="task in tasks" :key="task.title">
+      <div class="date blue darken-2 text-center white--text">
+        {{ task.date }}
+      </div>
+      <div class="title pa-6">{{ task.title }}</div>
+    </v-card>
 
-    <v-btn class="ml-10 ma-10" dark color="indigo" right absolute>
-      <v-icon dark>mdi-plus</v-icon>SUBSCRIBE
-    </v-btn>
+    <div>
+      <v-btn
+        dark
+        rounded
+        class="float-right ma-5 pa-6 subscribe purple darken-4"
+        ><v-icon dark>mdi-plus</v-icon>SUBSCRIBE</v-btn
+      >
+    </div>
   </div>
 </template>
 
@@ -69,3 +69,35 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+h1,
+h5,
+.date,
+.title {
+  font-family: Roboto;
+  font-weight: 300;
+  font-style: normal;
+}
+h1 {
+  font-size: 60px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+.date {
+  width: 70px;
+  font-size: 23px;
+  padding: 6px;
+}
+
+.title {
+  font-size: 23px;
+}
+
+/* .subscribe {
+  font-size: 18px;
+} */
+</style>
