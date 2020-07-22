@@ -1,22 +1,26 @@
 <template>
   <v-app>
     <Navdrawer />
+
     <v-main>
-      <Navbar />
-      <router-view></router-view>
+      <v-container fluid>
+        <Tab />
+        <router-view></router-view>
+      </v-container>
     </v-main>
+
   </v-app>
 </template>
 
 <script>
 import Navdrawer from "./components/Navdrawer";
-import Navbar from "./components/Navbar";
+import Tab from "./components/Tab";
 
 export default {
   name: "App",
   components: {
     Navdrawer,
-    Navbar
+    Tab
   },
   data: () => ({
     //

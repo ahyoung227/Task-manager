@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card max-width="300" class="cards ma-5">
     <!-- Card header -->
     <v-card-actions>
       <v-list-item-avatar>
