@@ -1,7 +1,7 @@
 <template>
   <!-- Tap -->
   <nav class="ma-16">
-    <v-tabs app centered grow class="ma-8">
+    <v-tabs app centered grow>
       <v-tab>Browse</v-tab>
       <v-tab>Mine</v-tab>
       <v-tab>Subscribe</v-tab>
