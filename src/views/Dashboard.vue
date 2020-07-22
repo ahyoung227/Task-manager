@@ -1,105 +1,39 @@
 <template>
-  <div class="Dashboard mx-16 px-10">
-    <Tasksetscreation />
-    <!-- Card -->
-    <v-row class="mb-4" justify="center">
-      <v-col v-for="n in 4" :key="n" cols="auto">
-        <v-card
-          :loading="loading"
-          class="mx-auto my-12 ml-10"
-          max-width="350"
-          :to="{ name: 'Taskset' }"
-        >
-          <!-- Card header -->
-          <v-card-actions>
-            <v-list-item-avatar>
-              <v-img
-                src="https://randomuser.me/api/portraits/women/85.jpg"
-              ></v-img>
-            </v-list-item-avatar>
-            <v-card-title>Task-set Name</v-card-title>
+  <div class="Dashboard">
+    <v-container class="px-4" fluid>
+      <!-- Search bar -->
+      <v-row>
+        <v-col>
+          <v-text-field
+            append-icon="mic"
+            flat
+            hide-details
+            label="Search"
+            prepend-inner-icon="mdi-magnify"
+            solo-inverted
+            single-line
+          ></v-text-field>
+        </v-col>
+      </v-row>
 
-            <v-spacer></v-spacer>
+      <Tasksetscreation />
 
-            <v-menu right class="black--text">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn icon v-bind="attrs" v-on="on">
-                  <v-icon>mdi-dots-vertical</v-icon>
-                </v-btn>
-              </template>
-              <!-- taskset menu on the right side but now it doesn't work because of the router link -->
-              <v-list>
-                <v-list-item v-for="(item, i) in items" :key="i">
-                  <v-list-item-title>{{ item.title }}</v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-card-actions>
-
-          <v-img
-            height="250"
-            src="https://res.cloudinary.com/highereducation/image/upload/v1533591754/TheBestColleges.org/study-notebooks.jpg"
-          ></v-img>
-          <!-- Card progress -->
-          <v-stepper value="2" class="elevation-0">
-            <v-stepper-header>
-              <v-stepper-step step="1" complete></v-stepper-step>
-
-              <v-divider></v-divider>
-
-              <v-stepper-step step="2"></v-stepper-step>
-
-              <v-divider></v-divider>
-
-              <v-stepper-step step="3"></v-stepper-step>
-
-              <v-divider></v-divider>
-
-              <v-stepper-step step="4"></v-stepper-step>
-
-              <v-divider></v-divider>
-
-              <v-stepper-step step="5"></v-stepper-step>
-            </v-stepper-header>
-          </v-stepper>
-          <!-- Card circle progress1 -->
-          <v-list-item>
-            <v-list-item-icon>
-              <v-progress-circular :value="20"></v-progress-circular>
-            </v-list-item-icon>
-            <v-list-item-subtitle>Previous Subtask Name</v-list-item-subtitle>
-            <v-list-item-icon>
-              <v-icon color="red darken-2">verified_user</v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-          <!-- Card circle progress2 -->
-          <v-list-item>
-            <v-list-item-icon>
-              <v-progress-circular :value="60"></v-progress-circular>
-            </v-list-item-icon>
-            <v-list-item-subtitle>Next Subtask Name</v-list-item-subtitle>
-            <v-list-item-icon>
-              <v-icon color="yellow darken-2">warning</v-icon>
-            </v-list-item-icon>
-          </v-list-item>
-          <!-- Card footer -->
-          <v-card-actions>
-            <v-card-text>
-              <v-chip> <v-icon class="mr-2">people</v-icon>24 </v-chip>
-            </v-card-text>
-            <v-btn color="deep-purple lighten-2" text outlined>Update</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
+      <v-row>
+        <v-col class="d-inline-flex flex-wrap justify-space-between">
+          <cards class="mx-2" v-for="n in 4" :key="n"></cards>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
 <script>
 import Tasksetscreation from "../components/Tasksetscreation";
+import cards from "@/components/dahsboardCards";
 
 export default {
   components: {
+    cards,
     Tasksetscreation
   },
   data() {
