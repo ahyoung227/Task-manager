@@ -3,12 +3,9 @@
     <Navdrawer />
 
     <v-main>
-      <v-container fluid>
-        <Tab />
-        <router-view></router-view>
-      </v-container>
+      <Tab />
+      <router-view></router-view>
     </v-main>
-
   </v-app>
 </template>
 
