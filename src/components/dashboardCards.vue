@@ -1,5 +1,5 @@
 <template>
-  <v-card :loading="loading" max-width="350">
+  <v-card>
     <!-- Card header -->
     <v-card-actions>
       <v-list-item-avatar>
