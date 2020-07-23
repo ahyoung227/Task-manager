@@ -1,6 +1,6 @@
 <template>
   <!-- Tap -->
-  <v-row class="ma-16">
+  <v-row>
     <v-col>
       <v-tabs app centered grow>
         <v-tab>Browse</v-tab>

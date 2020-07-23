@@ -3,8 +3,10 @@
     <Navdrawer />
 
     <v-main>
-      <Tab />
-      <router-view></router-view>
+      <v-container>
+        <Tab />
+        <router-view></router-view>
+      </v-container>
     </v-main>
   </v-app>
 </template>
