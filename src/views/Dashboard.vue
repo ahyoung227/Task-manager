@@ -13,6 +13,13 @@
         ></v-text-field>
       </v-col>
     </v-row>
+    <Tasksetscreation />
+
+    <v-row>
+      <v-col class="d-inline-flex flex-wrap justify-space-between">
+        <cards class="mx-2" v-for="n in 4" :key="n"></cards>
+      </v-col>
+    </v-row>
 
     <v-row>
       <v-col class="d-flex flex-wrap justify-space-between">
@@ -23,22 +30,21 @@
 </template>
 
 <script>
-import cards from "@/components/DashboardCards";
+import cards from "@/components/DashboardCards.vue";
+import Tasksetscreation from "../components/Tasksetscreation";
 
 export default {
   components: {
-    cards
+    cards,
+    Tasksetscreation
   },
   mounted() {
     console.log(this.$vuetify.breakpoint);
   },
   data() {
     return {
-      tasks: [
-        { date: "JUN 03", title: "Submit IP proposal" },
-        { date: "JUL 15", title: "Submit first complete draft" },
-        { date: "AUG 30", title: "Get advisor signature" }
-      ]
+      items: [{ title: "Clone/Copy" }, { title: "Unsubscribe" }],
+      published: true
     };
   }
 };
