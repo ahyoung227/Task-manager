@@ -1,8 +1,11 @@
 <template>
-  <div class="Dashboard ma-16">
+  <div class="Dashboard">
     <!-- Search bar -->
-    <v-row justify="end">
+    <v-row>
       <v-col cols="4">
+        <Tasksetscreation />
+      </v-col>
+      <v-col cols="8">
         <v-text-field
           append-icon="mic"
           flat
@@ -13,7 +16,6 @@
         ></v-text-field>
       </v-col>
     </v-row>
-    <Tasksetscreation />
 
     <v-row>
       <v-col class="d-inline-flex flex-wrap justify-space-between">
