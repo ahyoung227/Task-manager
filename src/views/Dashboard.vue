@@ -36,11 +36,13 @@ import { db, store } from "@/fire";
 
 export default {
 
-  data: () => ({
+data: () => ({
     todos: []
   }),
-  firestore: {
-    todos: db.collection('todos')
+firestore() {
+    return{
+      todos: db.collection('todos')
+    }
   },
   computed: {
     user: () => store.user
