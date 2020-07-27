@@ -45,7 +45,8 @@
     <!-- Navigation drawer-logout -->
     <template v-slot:append>
       <div class="pa-2">
-        <v-btn block class="px-2 grey darken-2 white--text">Logout</v-btn>
+        <v-btn block class="px-2 grey darken-2 white--text mb-2">Sign Up</v-btn>
+        <v-btn block class="px-2 grey darken-2 white--text">Login</v-btn>
       </div>
     </template>
   </v-navigation-drawer>
