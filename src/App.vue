@@ -21,8 +21,6 @@ export default {
     Navdrawer,
     Tab
   },
-  data: () => ({
-    //
-  })
+  data: () => ({})
 };
 </script>
