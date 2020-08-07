@@ -109,7 +109,8 @@
                       <v-card-title>
                         <v-col cols="8">
                           <v-text-field
-                            label="Subtask Name"
+                            label="User Name"
+                            placeholder="Add Users..."
                             required
                             v-model="invitedUser"
                           ></v-text-field>
@@ -269,8 +270,6 @@ export default {
     },
     addSubtasks() {
       this.tasks.push({ due: this.dateFormatted, name: this.subtaskName });
-      // let tasksetRef = db.collection("tasksets").doc("SuwEtSwnKi4H2xadNcJl");
-      // tasksetRef.collection("subtasks").add({ title: "1234" });
     },
     addUser() {
       this.invitedLists.push(this.invitedUser);
@@ -279,7 +278,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .date,
 .title {
   font-family: Roboto;

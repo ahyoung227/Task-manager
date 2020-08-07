@@ -26,7 +26,7 @@
                   <v-icon>mdi-dots-vertical</v-icon>
                 </v-btn>
               </template>
-              <!-- taskset menu on the right side but now it doesn't work because of the router link -->
+              <!-- taskset menu on the right side -->
               <v-list>
                 <v-list-item v-for="(item, i) in items" :key="i">
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import { db, store } from "@/firebase";
+import { db } from "@/firebase";
 
 export default {
   data() {
@@ -108,9 +108,6 @@ export default {
       tasksets: db.collection("tasksets"),
       cards: db.collection("cards")
     };
-  },
-  computed: {
-    user: () => store.user
   }
 };
 </script>

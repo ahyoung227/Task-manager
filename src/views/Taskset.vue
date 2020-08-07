@@ -1,9 +1,9 @@
 <template>
   <div class="Taskset mx-16 pa-5">
     <v-container>
-      <h2 class="text-center">Taskset title</h2>
+      <h2 class="text-center">{{ taskset.title }}</h2>
       <h1 class="text-center">Integrative Project</h1>
-      <h5 class="text-center">Owner</h5>
+      <h5 class="text-center">{{ taskset.owner }}</h5>
       <v-divider class="ma-10"></v-divider>
       <p class="px-9 ma-0">
         The following is the task-set description for the IP project. You will
@@ -61,29 +61,24 @@
 </template>
 
 <script>
-import { db, store } from "@/firebase";
+import { db } from "@/firebase";
 
 export default {
   data() {
     return {
-      tasksets: [],
+      taskset: [],
       subtasks: [],
       id: this.$route.params.id
     };
   },
   firestore() {
     return {
+      taskset: db.collection("tasksets").doc(this.id),
       subtasks: db
         .collection("tasksets")
         .doc(this.id)
         .collection("subtasks")
     };
-  },
-  computed: {
-    user: () => store.user,
-    taskset() {
-      return this.tasksets.find(taskset => taskset.id === this.id);
-    }
   }
 };
 </script>
@@ -114,8 +109,4 @@ h5 {
 .title {
   font-size: 23px;
 }
-
-/* .subscribe {
-  font-size: 18px;
-} */
 </style>

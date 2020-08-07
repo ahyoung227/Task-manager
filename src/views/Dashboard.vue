@@ -18,8 +18,6 @@
         </v-col>
       </v-row>
       <cards></cards>
-      <!-- </v-col>
-      </v-row> -->
     </v-container>
   </div>
 </template>
@@ -27,7 +25,7 @@
 <script>
 import cards from "@/components/DashboardCards.vue";
 import Tasksetscreation from "../components/Tasksetscreation";
-import { db, store } from "@/firebase";
+import { db } from "@/firebase";
 
 export default {
   components: {
@@ -46,9 +44,6 @@ export default {
       tasksets: db.collection("tasksets"),
       cards: db.collection("cards")
     };
-  },
-  computed: {
-    user: () => store.user
   }
 };
 </script>
