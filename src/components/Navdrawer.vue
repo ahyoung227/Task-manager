@@ -4,7 +4,7 @@
     <v-list>
       <v-list-item class="px-2 grey darken-3">
         <v-list-item-avatar v-if="user">
-          <v-img src="https://randomuser.me/api/portraits/women/85.jpg"></v-img>
+          <v-img :src="user.photoURL"></v-img>
         </v-list-item-avatar>
         <v-list-item-avatar v-else>
           <v-icon dark>mdi-account-circle</v-icon>
@@ -75,7 +75,6 @@ var cardsRef = db.collection("cards");
 export default {
   name: "Navdrawer",
   data: () => ({
-    myWord: "hello",
     newCard: {
       title: ""
     },
@@ -99,11 +98,6 @@ export default {
     },
     signOut() {
       firebase.auth().signOut();
-    },
-    checkWord() {
-      if (this.myWord === "hello") {
-        alert("it is working!");
-      }
     }
   }
 };
