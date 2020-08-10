@@ -105,7 +105,7 @@ export default {
   },
   firestore() {
     return {
-      tasksets: db.collection("tasksets"),
+      tasksets: db.collection("priscilla_taskset"),
       cards: db.collection("cards")
     };
   }
