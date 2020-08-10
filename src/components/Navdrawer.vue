@@ -68,36 +68,25 @@
 </template>
 
 <script>
-import { firebase, db, store } from "@/firebase";
-
-var cardsRef = db.collection("cards");
+import { firebase } from "@/firebase";
 
 export default {
   name: "Navdrawer",
-  data: () => ({
-    newCard: {
-      title: ""
-    },
-    cards: []
-  }),
-  firestore: {
-    cards: db.collection("cards")
-  },
   computed: {
     user() {
-      return store.user;
+      return this.$store.state.user;
     }
   },
   methods: {
-    save() {
-      cardsRef.add(this.newCard);
-    },
     signIn() {
       let provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider);
     },
     signOut() {
       firebase.auth().signOut();
+    },
+    printUser() {
+      console.log(this.$store.state.user);
     }
   }
 };
