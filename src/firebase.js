@@ -1,8 +1,9 @@
-import Vue from "vue";
+// import Vue from "vue";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import router from "./router";
+// import router from "./router";
+import store from "./store";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAPbYnorj6Z-e_8oFHu3R96agVZabjnet8",
@@ -17,22 +18,22 @@ const firebaseConfig = {
 
 const db = firebase.initializeApp(firebaseConfig).firestore();
 
-const store = Vue.observable({
-  user: null
-});
+// const store = Vue.observable({
+//   user: null
+// });
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    store.user = user;
-    if (router.currentRoute.path !== "/") {
-      router.push({ path: "/", params: { user: user } });
-    }
+    store.dispatch("signIn", user);
+    // if (router.currentRoute.path !== "/") {
+    //   router.push({ path: "/", params: { user: user } });
+    // }
   } else {
-    store.user = null;
-    if (router.currentRoute.path !== "/") {
-      router.push({ path: "/", params: { user: null } });
-    }
+    store.dispatch("signOut");
+    // if (router.currentRoute.path !== "/") {
+    //   router.push({ path: "/", params: { user: null } });
+    // }
   }
 });
 
-export { firebase, db, store };
+export { firebase, db };

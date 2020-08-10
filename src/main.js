@@ -3,11 +3,13 @@ import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
 import { firestorePlugin } from "vuefire";
+import store from "./store";
 
 Vue.config.productionTip = false;
 Vue.use(firestorePlugin);
 
 new Vue({
+  store,
   router,
   vuetify,
   render: h => h(App)
